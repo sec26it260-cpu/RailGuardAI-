@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #090611;
+    color: #f5edff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.topbar {
+    background: #120b20;
+    border-bottom: 1px solid #6425a8;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 20px #9b35ff22;
+}
+
+.topbar span,
+.welcome span {
+    color: #c77dff;
+    text-shadow: 0 0 12px #a020f0;
+}
+
+.status {
+    color: #a8ffcf;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.welcome {
+    padding: 55px 0 35px;
+}
+
+.tag {
+    color: #c77dff;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.welcome h1 {
+    font-size: 38px;
+    margin: 15px 0;
+    line-height: 1.3;
+}
+
+.welcome p {
+    color: #b9a9ce;
+}
+
+#clock {
+    margin-top: 12px;
+    color: #c77dff;
+}
+
+.stats,
+.coaches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0 35px;
+}
+
+.card,
+.coach {
+    background: linear-gradient(145deg, #1c102c, #110b1c);
+    border: 1px solid #6425a8;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 0 15px #8b2be522;
+    transition: 0.3s;
+}
+
+.card:hover,
+.coach:hover {
+    border-color: #d18aff;
+    transform: translateY(-3px);
+}
+
+.card p,
+.coach p {
+    color: #b9a9ce;
+    font-size: 13px;
+}
+
+.card h2,
+.coach h2 {
+    font-size: 27px;
+    margin: 8px 0;
+}
+
+.card small {
+    color: #9885ae;
+}
+
+.green {
+    color: #8affc1;
+}
+
+.section-title {
+    font-size: 21px;
+    margin: 30px 0 15px;
+    color: #e7c8ff;
+}
+
+.coach {
+    cursor: pointer;
+}
+
+.coach h3 {
+    color: #c77dff;
+    font-size: 14px;
+}
+
+.camera,
+.verification {
+    background: #150d22;
+    border: 1px solid #6425a8;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.camera-screen {
+    background: #090611;
+    border: 1px dashed #a020f0;
+    border-radius: 12px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 15px;
+}
+
+.camera-icon {
+    color: #d18aff;
+    font-size: 40px;
+}
+
+.camera-screen p,
+.verification p {
+    color: #b9a9ce;
+}
+
+.verify-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #38204d;
+}
+
+.review {
+    color: #ffd580;
+}
+
+.normal {
+    color: #8affc1;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    color: #9885ae;
+    font-size: 12px;
+}
+
+@media(max-width: 600px) {
+    .stats,
+    .coaches {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome h1 {
+        font-size: 30px;
+    }
+
+    .topbar {
+        padding: 15px;
+    }
+
+    .verify-row {
+        font-size: 13px;
+    }
+}
