@@ -1,85 +1,40 @@
+const API_URL = https://railguardai-1-0g01.onrender.com/!
 
-const API_URL = "YOUR_RENDER_URL";
-
-function updateClock() {
-    const now = new Date();
-
-    document.getElementById("clock").textContent =
-        now.toLocaleString();
-}
-
-setInterval(updateClock, 1000);
-updateClock();
-
-async function loadDashboard() {
+async function loadCoaches() {
     try {
-        const response = await fetch(API_URL + "/api/coaches");
+        const response = await fetch(`${API_URL}/api/coaches`);
+        const coaches = await response.json();
 
-        if (!response.ok) {
-            throw new Error("API connection failed");
-        }
+        console.log("RailGuard AI Connected!", coaches);
 
-        const data = await response.json();
-
-        document.getElementById("backend").textContent = "Online";
-
-        document.getElementById("c1").textContent =
-            data.C1.estimated_count;
-
-        document.getElementById("c2").textContent =
-            data.C2.estimated_count;
-
-        document.getElementById("c3").textContent =
-            data.C3.estimated_count;
-
-        loadVerification();
+        document.getElementById("backendStatus").textContent = "Online";
 
     } catch (error) {
-        document.getElementById("backend").textContent = "Offline";
-        document.getElementById("verification").textContent =
-            "Backend connection unavailable. Please check the server.";
+        console.error("Backend Error:", error);
+        document.getElementById("backendStatus").textContent = "Offline";
+      async function startCamera() {
+    const video = document.getElementById("camera");
+    const status = document.getElementById("cameraStatus");
+
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        status.textContent = "Camera API not supported";
+        return;
     }
-}
 
-async function loadVerification() {
     try {
-        const response = await fetch(
-            API_URL + "/api/verification"
-        );
+        status.textContent = "Connecting camera...";
 
-        const results = await response.json();
-
-        let alerts = 0;
-        let html = "";
-
-        results.forEach(item => {
-            if (item.review_required) alerts++;
-
-            html += `
-                <div class="verify-row">
-                    <span>${item.coach}</span>
-                    <span>Booked: ${item.booked}</span>
-                    <span>Estimated: ${item.estimated_count}</span>
-                    <span class="${item.review_required ? 'review' : 'normal'}">
-                        ${item.review_required ? 'Review' : 'Match'}
-                    </span>
-                </div>
-            `;
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: "environment" },
+            audio: false
         });
 
-        document.getElementById("verification").innerHTML = html;
-        document.getElementById("alerts").textContent = alerts;
+        video.srcObject = stream;
+        await video.play();
 
+        status.textContent = "Camera Connected Successfully!";
     } catch (error) {
-        console.log("Verification data unavailable");
+        status.textContent = "Camera Error: " + error.name;
+        console.error(error);
     }
-}
-
-function showCoach(coach) {
-    alert(
-        coach +
-        " selected. Occupancy shown is approximate demo data."
-    );
-}
-
-loadDashboard();
+      }
