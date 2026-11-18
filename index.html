@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailGuard AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <h2>RailGuard <span>AI</span></h2>
+    <div class="status">● SYSTEM ONLINE</div>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <p class="tag">SMART RAILWAY MONITORING</p>
+        <h1>Welcome to <span>RailGuard AI</span></h1>
+        <p>AI-powered railway coach occupancy monitoring and ticket verification assistance system.</p>
+        <p id="clock"></p>
+    </section>
+
+    <section class="stats">
+        <div class="card">
+            <p>Total Coaches</p>
+            <h2>03</h2>
+            <small>Demo coaches</small>
+        </div>
+
+        <div class="card">
+            <p>Backend Status</p>
+            <h2 class="green" id="backend">Checking</h2>
+            <small>Server connection</small>
+        </div>
+
+        <div class="card">
+            <p>Review Alerts</p>
+            <h2 id="alerts">--</h2>
+            <small>Demo discrepancies</small>
+        </div>
+    </section>
+
+    <h2 class="section-title">Coach Monitoring</h2>
+
+    <section class="coaches">
+        <div class="coach" onclick="showCoach('C1')">
+            <h3>COACH C1</h3>
+            <h2 id="c1">--</h2>
+            <p>Estimated occupancy</p>
+        </div>
+
+        <div class="coach" onclick="showCoach('C2')">
+            <h3>COACH C2</h3>
+            <h2 id="c2">--</h2>
+            <p>Estimated occupancy</p>
+        </div>
+
+        <div class="coach" onclick="showCoach('C3')">
+            <h3>COACH C3</h3>
+            <h2 id="c3">--</h2>
+            <p>Estimated occupancy</p>
+        </div>
+    </section>
+
+    <section class="camera">
+        <h2 class="section-title">AI Camera Monitoring</h2>
+        <div class="camera-screen">
+            <div class="camera-icon">◉</div>
+            <h3>Camera Preview</h3>
+            <p>Camera connection not configured</p>
+            <small>Live person estimation will be integrated later.</small>
+        </div>
+    </section>
+
+    <section class="verification">
+        <h2 class="section-title">Ticket Verification Assistance</h2>
+        <p>Demo booking information compared with approximate occupancy estimates.</p>
+        <div id="verification">
+            Loading demo information...
+        </div>
+        <small>Any difference requires human review. It is not proof of ticket violation.</small>
+    </section>
+
+</main>
+
+<footer>
+    <p>RailGuard AI | Smart Railway Monitoring Project</p>
+    <p>Developed by B.Tech IT Student Team</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+                          </html>
+                          
